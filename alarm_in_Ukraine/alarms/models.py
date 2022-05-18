@@ -8,6 +8,6 @@ class States(models.Model):
 
 class Alarm(models.Model):
     id = models.BigAutoField(primary_key=True)
-    date = models.DateField()
+    date = models.DateTimeField()
     alert = models.BooleanField()
     state_id = models.ForeignKey(States, on_delete=models.CASCADE)
