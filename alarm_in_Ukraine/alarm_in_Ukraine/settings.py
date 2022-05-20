@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'alarm_in_Ukraine.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd1eqmo23iv6sn9',
+        'NAME': 'df6f56nqs5lsn2',
         'USER': 'cawhswnwhgqlwv',
         'PASSWORD': '3a4a0be24038a619b15006c074d4f2faa08842a471909338d7c95ed77fa13d3c',
         'HOST': 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
