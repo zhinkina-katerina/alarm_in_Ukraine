@@ -1,12 +1,12 @@
 from .api_connector import ApiConnector
-from .env_manager import env_manager
+import os
 
 
 class AlertsConnector(ApiConnector):
     def __init__(self):
         self.headers = {
             'Content-type': 'application/json',
-            'X-API-Key': env_manager.ALERTS_CONNECTOR_TOKEN
+            'X-API-Key': os.environ['ALERTS_CONNECTOR_TOKEN']
         }
         self.base_url = 'https://alerts.com.ua/api/'
 
