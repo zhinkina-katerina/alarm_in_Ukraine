@@ -85,9 +85,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd1eqmo23iv6sn9',
-        'USER': 'jjsphvwuckpwot',
-        'PASSWORD': 'ff25f0aa46eafba4ccb4e94c3925bd72a6e9c43559f8f56cc20ceec366ac350d',
-        'HOST': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
+        'USER': 'cawhswnwhgqlwv',
+        'PASSWORD': '3a4a0be24038a619b15006c074d4f2faa08842a471909338d7c95ed77fa13d3c',
+        'HOST': 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
         'PORT': 5432
     }
 }
@@ -141,8 +141,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_TIMEZONE = "Europe/Kiev"
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
-CELERY_BROKER_URL = 'redis://:p8dce57aa0e4869a626473582563eee0abb5e1867f47c6b3efa528105f8fcceb4@ec2-54-77-76-210.eu-west-1.compute.amazonaws.com:19770'
-CELERY_RESULT_BACKEND = 'redis://:p8dce57aa0e4869a626473582563eee0abb5e1867f47c6b3efa528105f8fcceb4@ec2-54-77-76-210.eu-west-1.compute.amazonaws.com:19770'
+CELERY_BROKER_URL = 'redis://:p88e0f0ba696020bd43559d7966bcef755a5fe9257be41a1d47c79fa7442b4248@ec2-54-77-76-210.eu-west-1.compute.amazonaws.com:20740'
+CELERY_RESULT_BACKEND = 'redis://:p88e0f0ba696020bd43559d7966bcef755a5fe9257be41a1d47c79fa7442b4248@ec2-54-77-76-210.eu-west-1.compute.amazonaws.com:20740'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
