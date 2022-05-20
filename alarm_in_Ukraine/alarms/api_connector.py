@@ -16,8 +16,7 @@ class ApiConnector:
             time.sleep(60)
             raise HTTPError('Unknown method')
         if response.status_code != 200:
+            time.sleep(60)
             raise HTTPError('{}: {}'.format(response.status_code, response.reason))
 
         return response.json()
-
-

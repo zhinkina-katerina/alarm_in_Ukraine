@@ -21,4 +21,3 @@ class DataBaseProvider:
                                  date=item.get('date'),
                                  state_id=state,
                                  alert=alert)
-
