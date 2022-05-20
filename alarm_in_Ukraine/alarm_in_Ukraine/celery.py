@@ -23,7 +23,7 @@ app.conf.beat_schedule = {
     },
     'set_states_to_db': {
         'task': 'alarms.tasks.set_states_to_db',
-        'schedule': 86400.0
+        'schedule': 60.0
     },
 
 }
