@@ -1,5 +1,5 @@
 import requests
-
+import time
 
 class HTTPError(Exception):
     pass
@@ -13,6 +13,7 @@ class ApiConnector:
         elif method == 'POST':
             response = requests.post(url, json=body, headers=headers)
         else:
+            time.sleep(60)
             raise HTTPError('Unknown method')
         if response.status_code != 200:
             raise HTTPError('{}: {}'.format(response.status_code, response.reason))
