@@ -1,2 +1,9 @@
 /venv/
-/.idea/
+*.rar
+*.sqlite3
+.env
+__pycache__/
+*.log
+*.iml
+.ide
+*.idea
