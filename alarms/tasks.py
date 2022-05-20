@@ -1,6 +1,7 @@
 from celery import shared_task
 from .data_base_provider import DataBaseProvider
 from .alerts_connector import AlertsConnector
+from .models import States
 
 db_provider = DataBaseProvider()
 alerts_connector = AlertsConnector()
@@ -8,6 +9,8 @@ alerts_connector = AlertsConnector()
 
 @shared_task
 def set_states_to_db():
+    if States.objects.first():
+        return
     response = alerts_connector.make_states_request()
     db_provider.set_states(response)
 

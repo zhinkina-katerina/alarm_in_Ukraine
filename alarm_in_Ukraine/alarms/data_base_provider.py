@@ -4,8 +4,7 @@ from django.db.models import Max
 
 class DataBaseProvider:
     def set_states(self, response):
-        if States.objects.first():
-            return
+
         for item in response['states']:
             States.objects.create(id=item.get('id'), state=item.get('name'))
 
