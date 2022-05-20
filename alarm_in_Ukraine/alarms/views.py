@@ -1,7 +1,9 @@
-from django.shortcuts import render
+
 from .models import States, Alarm
 from django.views.generic import TemplateView
 from django.db.models import Sum
+from datetime import timedelta, datetime
+import pytz
 
 class Statistic(TemplateView):
     template_name = 'statistic.html'  # noqa
@@ -45,3 +47,20 @@ class Statistic(TemplateView):
     def get(self, request, *args, **kwargs):
         self.request = request
         return TemplateView.get(self, request, *args, **kwargs)
+
+class StatisticWeek(Statistic):
+
+    def get_db_objects(self):
+        tz = pytz.timezone('Europe/Kiev')
+        today = datetime.now(tz)
+        week_ago = today - timedelta(days=8)
+        self.alarms = Alarm.objects.all().filter(alert=True, date__range=[week_ago, today])
+
+
+class StatisticDay(Statistic):
+
+    def get_db_objects(self):
+        tz = pytz.timezone('Europe/Kiev')
+        today = datetime.now(tz)
+        yesterday = today - timedelta(days=1)
+        self.alarms = Alarm.objects.all().filter(alert=True, date__range=[yesterday, today])
