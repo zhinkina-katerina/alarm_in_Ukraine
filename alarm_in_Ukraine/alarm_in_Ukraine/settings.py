@@ -146,5 +146,6 @@ CELERY_RESULT_BACKEND = 'redis://:p88e0f0ba696020bd43559d7966bcef755a5fe9257be41
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
+CELERYBEAT_OPTS='-S django'
 
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
