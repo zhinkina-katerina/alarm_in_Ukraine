@@ -11,6 +11,8 @@ class DataBaseProvider:
 
     def set_alarms(self, response):
         max_id = Alarm.objects.all().aggregate(Max('id')).get('id__max')
+        if not max_id:
+            max_id = 0
         new_alarms = list(filter(lambda x: x.get('id') > max_id, response))
         for item in new_alarms:
             state_id = int(item.get('state_id'))
