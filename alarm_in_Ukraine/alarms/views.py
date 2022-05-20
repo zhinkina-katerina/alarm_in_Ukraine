@@ -64,3 +64,7 @@ class StatisticDay(Statistic):
         today = datetime.now(tz)
         yesterday = today - timedelta(days=1)
         self.alarms = Alarm.objects.all().filter(alert=True, date__range=[yesterday, today])
+
+
+def page_not_found(request, exception):
+    return render(request, '404.html', status=404)  # noqa
