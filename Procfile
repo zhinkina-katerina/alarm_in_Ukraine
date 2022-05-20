@@ -1,4 +1,3 @@
+release:python alarm_in_Ukraine/manage.py migrate
 web: python alarm_in_Ukraine/manage.py runserver 0.0.0.0:$PORT
-beat: celery -A alarm_in_Ukraine beat
-worker: celery -A alarm_in_Ukraine worker -l INFO --pool=solo
-
+worker: python alarm_in_Ukraine/celery -A alarm_in_Ukraine worker & alarm_in_Ukraine/celery -A alarm_in_Ukraine beat -l INFO --pool=solo
