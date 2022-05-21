@@ -1,9 +1,9 @@
-
 from .models import States, Alarm
 from django.views.generic import TemplateView
-from django.db.models import Sum
+from django.db.models import Sum, When, Case
 from datetime import timedelta, datetime
 import pytz
+
 
 class Statistic(TemplateView):
     template_name = 'statistic.html'  # noqa
@@ -37,16 +37,17 @@ class Statistic(TemplateView):
         return sorted_dict
 
     def get_sum_of_alarms(self, state):
-        sum_alarms = self.alarms.filter(state_id=state.get('id')).aggregate(Sum('alert')).get('alert__sum')
-        if not sum_alarms:
-            sum_alarms = 0
-        if sum_alarms is True:
-            sum_alarms = 1
+        sum_alarms = self.alarms.filter(state_id=state.get('id')).aggregate(Sum(Case(
+            When(alarms_alarm=True, then=1),
+            When(alarms_alarm=None, then=0),
+        ), 'alert')).get('alert__sum')
+
         return sum_alarms
 
     def get(self, request, *args, **kwargs):
         self.request = request
         return TemplateView.get(self, request, *args, **kwargs)
+
 
 class StatisticWeek(Statistic):
 
