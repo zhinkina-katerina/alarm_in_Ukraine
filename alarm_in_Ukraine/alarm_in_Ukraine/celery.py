@@ -17,14 +17,15 @@ app.conf.update(
 app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
-    'set_alarms_to_db': {
-        'task': 'alarms.tasks.set_alarms_to_db',
-        'schedule': 300.0
-    },
     'set_states_to_db': {
         'task': 'alarms.tasks.set_states_to_db',
         'schedule': 60.0
     },
+    'set_alarms_to_db': {
+        'task': 'alarms.tasks.set_alarms_to_db',
+        'schedule': 300.0
+    },
+
 
 }
 
