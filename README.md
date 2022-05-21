@@ -22,7 +22,8 @@ Data update frequency - 5 minutes.
 
 
 # Installation 
-##Local
+
+## Local
 
 1. Clone the repository
 
@@ -47,7 +48,7 @@ Data update frequency - 5 minutes.
 10. To start the server, enter `python manage.py runserver`
 
 
-##Heroku
+## Heroku
 1. Set up environment variables Heroku in Setting/Config_Vars
 
 2. Log in to your Heroku
